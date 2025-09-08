@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌹 $ROSE - The Wilted Rose Meme Coin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e91e63;
+            --secondary-color: #880e4f;
+            --accent-color: #fce4ec;
+            --dark-color: #2d1b2c;
+            --light-color: #fff5f7;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-2: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 5% 10%, rgba(233, 30, 99, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 95% 10%, rgba(233, 30, 99, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 90%, rgba(233, 30, 99, 0.05) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: white;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-emoji {
+            font-size: 2.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0;
+            text-align: center;
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><text x="50%" y="50%" font-size="80" text-anchor="middle" dominant-baseline="middle" fill="white">🌹</text></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .floating-roses {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .floating-rose {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .about-content, .tokenomics-content, .roadmap-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        /* Tokenomics Section */
+        .tokenomics-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tokenomics-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tokenomics-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+        
+        .tokenomics-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tokenomics-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .tokenomics-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Roadmap Section */
+        .roadmap-steps {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .roadmap-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--gradient);
+            transform: translateX(-50%);
+        }
+        
+        .roadmap-step {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: calc(50% - 40px);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .roadmap-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .roadmap-step:nth-child(odd) {
+            margin-left: auto;
+        }
+        
+        .roadmap-step::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px var(--accent-color);
+        }
+        
+        .roadmap-step:nth-child(odd)::after {
+            right: -50px;
+        }
+        
+        .roadmap-step:nth-child(even)::after {
+            left: -50px;
+        }
+        
+        .roadmap-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Community Section */
+        .community-content {
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Buy Section */
+        .buy-section {
+            text-align: center;
+            background: var(--gradient-2);
+            padding: 80px 0;
+            color: var(--dark-color);
+        }
+        
+        .buy-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .buy-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .buy-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* AI Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .chatbot-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        
+        .chatbot-window.active {
+            display: flex;
+            transform: scale(1);
+        }
+        
+        .chatbot-header {
+            background: var(--gradient);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            animation: messageAppear 0.3s ease;
+        }
+        
+        @keyframes messageAppear {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .bot-message {
+            background: #f0f0f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .user-message {
+            background: var(--gradient);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+        }
+        
+        .chatbot-input button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .disclaimer {
+            font-size: 0.9rem;
+            margin-top: 20px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .roadmap-steps::before {
+                left: 20px;
+            }
+            
+            .roadmap-step {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .roadmap-step:nth-child(odd)::after,
+            .roadmap-step:nth-child(even)::after {
+                left: -40px;
+            }
+            
+            .chatbot-window {
+                width: 300px;
+                right: -40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-image">
+                    <span class="logo-emoji">🌹</span>
+                </div>
+                <span class="logo-text">$ROSE</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#tokenomics">Tokenomics</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#buy">Buy</a></li>
+                </ul>
+            </nav>
+            <a href="https://pump.fun/4TQfk8K29fEFzpfoA6aZdBJdC2y7D2w5ZdYt5f1Rwyrf" class="cta-button">Buy $ROSE</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-roses">
+            <div class="floating-rose" style="top: 20%; left: 10%;">🌹</div>
+            <div class="floating-rose" style="top: 60%; left: 5%;">🌹</div>
+            <div class="floating-rose" style="top: 30%; right: 15%;">🌹</div>
+            <div class="floating-rose" style="top: 70%; right: 10%;">🌹</div>
+        </div>
+        <div class="container hero-content">
+            <h1>The Meme That Never Wilts</h1>
+            <p>The OG rose emoji coin on Pump.fun. Viral, simple, and community-powered. $ROSE is here to bloom across Web3.</p>
+            <a href="https://pump.fun/4TQfk8K29fEFzpfoA6aZdBJdC2y7D2w5ZdYt5f1Rwyrf" class="cta-button">Buy Now on Pump.fun</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About $ROSE</h2>
+            <div class="about-content">
+                <p>The Wilted Rose blooms eternal. Roses symbolize love, beauty, and resilience. Even wilted, a rose tells a story — just like memes. $ROSE is the community coin built to go viral, powered by one of the most recognizable emojis in the world: 🌹.</p>
+                <p>This isn't just another token. It's a movement. Simple, viral, unstoppable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2>Tokenomics</h2>
+            <div class="tokenomics-content">
+                <p>Total Supply: 1,000,000,000 (1B)</p>
+                <p>Launchpad: Pump.fun – fair launch, no presale, no team wallets</p>
+                
+                <div class="tokenomics-cards">
+                    <div class="tokenomics-card">
+                        <i class="fas fa-fire"></i>
+                        <h3>90% LP & Burned</h3>
+                        <p>Liquidity Pool burned for safety and trust</p>
+                    </div>
+                    <div class="tokenomics-card">
+                        <i class="fas fa-users"></i>
+                        <h3>5% Community Growth</h3>
+                        <p>For giveaways, memes, and partnerships</p>
+                    </div>
+                    <div class="tokenomics-card">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>5% CEX/DEX Listings</h3>
+                        <p>For exchange listings and expansion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap">
+        <div class="container">
+            <h2>Roadmap</h2>
+            <div class="roadmap-content">
+                <div class="roadmap-steps">
+                    <div class="roadmap-step">
+                        <h3>Phase 1: Planting the Seed 🌱</h3>
+                        <p>Pump.fun launch</p>
+                        <p>Community growth on Telegram and X</p>
+                        <p>Meme campaigns 🌹</p>
+                    </div>
+                    <div class="roadmap-step">
+                        <h3>Phase 2: Blooming 🌹</h3>
+                        <p>Trending on Pump.fun & DEXTools</p>
+                        <p>Influencer pushes & meme partnerships</p>
+                        <p>Apply for first CEX listings</p>
+                    </div>
+                    <div class="roadmap-step">
+                        <h3>Phase 3: Full Bloom 🔥</h3>
+                        <p>Cross-chain expansion</p>
+                        <p>NFT/Meme drops for loyal holders</p>
+                        <p>More CEX listings</p>
+                    </div>
+                    <div class="roadmap-step">
+                        <h3>Phase 4: Eternal Rose 👑</h3>
+                        <p>Meme culture dominance</p>
+                        <p>Utility integrations (bots, stickers, emoji spam raids)</p>
+                        <p>Target top 100 meme coins</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2>Join Our Community</h2>
+            <div class="community-content">
+                <p>$ROSE lives and dies by its community. The more 🌹 shared, the stronger it grows.</p>
+                <div class="social-links">
+                    <a href="https://t.me/CTOwiltedrose" class="social-link">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                    <a href="https://x.com/wiltedrosecto" class="social-link">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buy Section -->
+    <section id="buy" class="buy-section">
+        <div class="container">
+            <div class="buy-content">
+                <h2>Buy $ROSE Now</h2>
+                <p>Join the movement and be part of the most viral meme coin on Solana. Click the button below to buy $ROSE on Pump.fun.</p>
+                <a href="https://pump.fun/4TQfk8K29fEFzpfoA6aZdBJdC2y7D2w5ZdYt5f1Rwyrf" class="buy-button">Buy $ROSE on Pump.fun</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-button" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                $ROSE AI Assistant
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    Hello! I'm the $ROSE AI assistant. How can I help you learn about our project?
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="userInput" placeholder="Ask about $ROSE...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">
+                <div class="logo-image">
+                    <span class="logo-emoji">🌹</span>
+                </div>
+                <span class="logo-text">$ROSE</span>
+            </div>
+            <p>The Wilted Rose Meme Coin - Blooming eternal on Solana</p>
+            <p class="disclaimer">
+                Disclaimer: $ROSE is a meme coin with no intrinsic value or expectation of financial return. 
+                This project is for entertainment purposes only. Please conduct your own research and invest responsibly.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle chatbot window
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            chatbotWindow.classList.toggle('active');
+        }
+
+        // AI Response logic
+        function getAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('what') && lowerMessage.includes('rose')) {
+                return "$ROSE is the Wilted Rose meme coin on Solana. It's a community-driven token powered by one of the most recognizable emojis: 🌹. Unlike other tokens, $ROSE represents a movement - simple, viral, and unstoppable.";
+            }
+            
+            if (lowerMessage.includes('buy') || lowerMessage.includes('where')) {
+                return "You can buy $ROSE on Pump.fun using this link: https://pump.fun/4TQfk8K29fEFzpfoA6aZdBJdC2y7D2w5ZdYt5f1Rwyrf. It's a fair launch with no presale and no team wallets, ensuring a fair distribution for all community members.";
+            }
+            
+            if (lowerMessage.includes('tokenomics') || lowerMessage.includes('supply')) {
+                return "Total supply is 1,000,000,000 (1B) $ROSE tokens. Distribution: 90% to liquidity pool (burned), 5% for community growth, and 5% for CEX/DEX listings.";
+            }
+            
+            if (lowerMessage.includes('roadmap') || lowerMessage.includes('plan')) {
+                return "Our roadmap has 4 phases: 1) Planting the Seed (launch), 2) Blooming (trending & partnerships), 3) Full Bloom (cross-chain & NFTs), 4) Eternal Rose (meme dominance & utility).";
+            }
+            
+            if (lowerMessage.includes('community') || lowerMessage.includes('join')) {
+                return "Join our growing community on Telegram (https://t.me/CTOwiltedrose) and X (https://x.com/wiltedrosecto). The more 🌹 shared, the stronger we grow!";
+            }
+            
+            if (lowerMessage.includes('contract') || lowerMessage.includes('address')) {
+                return "The contract address will be available once we launch on Pump.fun. Stay tuned to our social channels for the latest updates!";
+            }
+            
+            return "I'm not sure I understand. You can ask me about what $ROSE is, how to buy, tokenomics, roadmap, or our community!";
+        }
+
+        // Send message function
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value.trim();
+            
+            if (message === '') return;
+            
+            const chatbotMessages = document.getElementById('chatbotMessages');
+            
+            // Add user message
+            const userMessageElement = document.createElement('div');
+            userMessageElement.classList.add('message', 'user-message');
+            userMessageElement.textContent = message;
+            chatbotMessages.appendChild(userMessageElement);
+            
+            // Clear input
+            userInput.value = '';
+            
+            // Scroll to bottom
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            
+            // Simulate AI thinking
+            setTimeout(() => {
+                // Add AI response
+                const aiResponse = getAIResponse(message);
+                const aiMessageElement = document.createElement('div');
+                aiMessageElement.classList.add('message', 'bot-message');
+                aiMessageElement.textContent = aiResponse;
+                chatbotMessages.appendChild(aiMessageElement);
+                
+                // Scroll to bottom again
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }, 1000);
+        }
+
+        // Allow sending message with Enter key
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Add floating roses
+            const floatingRoses = document.querySelector('.floating-roses');
+            for (let i = 0; i < 8; i++) {
+                const rose = document.createElement('div');
+                rose.classList.add('floating-rose');
+                rose.textContent = '🌹';
+                rose.style.top = `${Math.random() * 100}%`;
+                rose.style.left = `${Math.random() * 100}%`;
+                rose.style.animationDelay = `${Math.random() * 5}s`;
+                floatingRoses.appendChild(rose);
+            }
+        });
+    </script>
+</body>
+</html>
